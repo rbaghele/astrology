@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- We'll use 'background' name to reference this color -->
+  <!-- Replace #HEX_VALUE with Your color -->
+  <color name="background">#558866</color>
+  <color name="primary_dark">#000000</color>
+  <!-- <color name="status_bar_color">Colour of your status bar here</color> -->
+
+</resources>
