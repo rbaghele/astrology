@@ -71,6 +71,10 @@ export default class HomePage extends Component<{}> {
     this.props.navigation.navigate('TestPage', {});
   };
 
+  _navigateToScrollViewExample = () => {
+    this.props.navigation.navigate('ScrollViewExample', {});
+  };
+
 	render(){
 		const loader = this.state.isLoading ? <ActivityIndicator size='large' /> : null;
 		return(
@@ -120,6 +124,10 @@ export default class HomePage extends Component<{}> {
         <TouchableOpacity onPress={this._navigateToTestPage}>
 
           <Text>Click here to go to test screen</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._navigateToScrollViewExample}>
+          <Text>Click here to go to scroll view Example</Text>
         </TouchableOpacity>
 			</View>
 		);
