@@ -75,6 +75,14 @@ export default class HomePage extends Component<{}> {
     this.props.navigation.navigate('ScrollViewExample', {});
   };
 
+  _navigateToFetchExample = () => {
+    this.props.navigation.navigate('FetchExample', {});
+  };
+
+  _navigateToAnimationExample = () => {
+    this.props.navigation.navigate('AnimationExample', {})
+  }
+
 	render(){
 		const loader = this.state.isLoading ? <ActivityIndicator size='large' /> : null;
 		return(
@@ -121,13 +129,20 @@ export default class HomePage extends Component<{}> {
 
         {loader}
 
-        <TouchableOpacity onPress={this._navigateToTestPage}>
-
+        <TouchableOpacity onPress={this._navigateToTestPage} style={styles.marginTop10}>
           <Text>Click here to go to test screen</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this._navigateToScrollViewExample}>
+        <TouchableOpacity onPress={this._navigateToScrollViewExample} style={styles.marginTop10}>
           <Text>Click here to go to scroll view Example</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._navigateToFetchExample} style={styles.marginTop10}>
+          <Text>Click here to go to Fetch Example</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._navigateToAnimationExample} style={styles.marginTop10}>
+          <Text>Click here to go to Animation Example</Text>
         </TouchableOpacity>
 			</View>
 		);
@@ -165,6 +180,6 @@ const styles = StyleSheet.create({
   },
 
   marginTop10: {
-    marginTop: 20,
+    marginTop: 10,
   }
 })
