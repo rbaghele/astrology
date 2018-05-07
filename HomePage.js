@@ -8,6 +8,7 @@ import {
   Button,
   ActivityIndicator,
   Image,
+  TouchableOpacity
 } from 'react-native';
 import DatePicker from 'react-native-datepicker'
 
@@ -20,8 +21,8 @@ export default class HomePage extends Component<{}> {
       name: '',
       message: '',
       date: "",
-      nameError: '',
-      dateError: ''
+      namePlaceholderColor: '#9a73ef',
+      datePickerPlaceholderColor: '#9a73ef'
     };
   }
 
@@ -35,13 +36,13 @@ export default class HomePage extends Component<{}> {
     const name = this.state.name.trim();
     const date = this.state.date.trim();
 
-    const nameError = name == '' ? 'Please enter your name' : '';
-    const dateError = date == '' ? 'Please select date of birth' : '';
+    const nameColor = name == '' ? 'red' : '#9a73ef';
+    const dateColor = date == '' ? 'red' : '#9a73ef';
 
     
     this.setState({
-      nameError: nameError,
-      dateError: dateError 
+      namePlaceholderColor: nameColor,
+      datePickerPlaceholderColor: dateColor 
     });
 
     return name != '' && date != '';
@@ -66,6 +67,10 @@ export default class HomePage extends Component<{}> {
     }
 	};
 
+  _navigateToTestPage = () => {
+    this.props.navigation.navigate('TestPage', {});
+  };
+
 	render(){
 		const loader = this.state.isLoading ? <ActivityIndicator size='large' /> : null;
 		return(
@@ -73,7 +78,9 @@ export default class HomePage extends Component<{}> {
 				<TextInput 
 				onChange={this._onNameChnaged} 
 				placeholder='* Please enter your name.'
-				style={styles.inputBox}
+        placeholderTextColor = {this.state.namePlaceholderColor}
+				style={styles.input}
+        underlineColorAndroid = "transparent"
 				/>
         <Text style={styles.error}>{this.state.nameError}</Text>
 
@@ -87,7 +94,17 @@ export default class HomePage extends Component<{}> {
         cancelBtnText="Cancel"
         onDateChange={(date) => {this.setState({date: date})}}
         style={styles.datePicker}
-        customStyles={{dateInput: {borderBottomWidth: 1, borderWidth:0, alignItems:'flex-start'}}}
+        customStyles={{ 
+          dateInput: { 
+            borderBottomWidth: 1,
+            borderWidth:0,
+            borderBottomColor: '#d3d3d3',
+            alignItems:'flex-start'
+          }, 
+          placeholderText: {
+            color: this.state.datePickerPlaceholderColor
+          }
+        }}
       	/>
         <Text style={styles.error}>{this.state.dateError}</Text>
 
@@ -97,8 +114,13 @@ export default class HomePage extends Component<{}> {
 				title='Know about me'
 				/>
         
-				{loader}
-        
+
+        {loader}
+
+        <TouchableOpacity onPress={this._navigateToTestPage}>
+
+          <Text>Click here to go to test screen</Text>
+        </TouchableOpacity>
 			</View>
 		);
 	}
@@ -106,18 +128,22 @@ export default class HomePage extends Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10
   },
 
-	inputBox: {
-		marginBottom: 10,
+	input: {
+    width: '100%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#d3d3d3',
+    marginBottom: 10,
 	},
 
 	datePicker: {
-		marginBottom: 10,
-    width: '100%'
+    width: '100%',
+    marginBottom: 10,
 	},
 
   error: {
@@ -127,6 +153,10 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    flex: 1
+    width: '100%'
+  },
+
+  marginTop10: {
+    marginTop: 20,
   }
 })
