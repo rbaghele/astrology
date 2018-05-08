@@ -10,6 +10,10 @@ import {
 } from 'react-native';
 
 export default class TestPage extends Component<{}> {
+  static navigationOptions = {
+    title: 'Test Page'
+  };
+
   constructor(props) {
     super(props);
     this.state = {

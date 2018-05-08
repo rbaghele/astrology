@@ -12,6 +12,10 @@ import {
 
 
 export default class AnimationExample extends Component<{}>{
+  static navigationOptions = {
+    title: 'Animation Example'
+  };
+
   // constructor(props){
   //   super(props);
 

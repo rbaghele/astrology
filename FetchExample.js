@@ -8,6 +8,10 @@ import {
 
 
 export default class FetchExample extends Component <{}>{
+  static navigationOptions = {
+    title: 'Fetch API Example'
+  };
+  
   componentDidMount = () => {
     fetch("https://jsonplaceholder.typicode.com/posts/1", {
       method: 'GET'

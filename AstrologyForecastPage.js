@@ -10,6 +10,9 @@ import {
 } from 'react-native';
 
 export default class AstrologyForecastPage extends Component<{}> {
+  static navigationOptions = {
+    title: 'Forecast',
+  };
   constructor(props) {
     super(props);
     const { params } = this.props.navigation.state;

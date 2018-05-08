@@ -14,6 +14,10 @@ import DatePicker from 'react-native-datepicker'
 
 
 export default class HomePage extends Component<{}> {
+  static navigationOptions = {
+    title: 'Home',
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -81,7 +85,23 @@ export default class HomePage extends Component<{}> {
 
   _navigateToAnimationExample = () => {
     this.props.navigation.navigate('AnimationExample', {})
-  }
+  };
+  
+  _navigateToWebViewExample = () => {
+    this.props.navigation.navigate('WebViewExample', {});
+  };
+
+  _navigateToModalExample = () => {
+    this.props.navigation.navigate('ModalExample');
+  };
+
+  _navigateToStatusBarExample = () => {
+    this.props.navigation.navigate('StatusBar');
+  };
+
+  _navigateToSwitchExample = () => {
+    this.props.navigation.navigate('SwitchExample');
+  };
 
 	render(){
 		const loader = this.state.isLoading ? <ActivityIndicator size='large' /> : null;
@@ -143,6 +163,22 @@ export default class HomePage extends Component<{}> {
 
         <TouchableOpacity onPress={this._navigateToAnimationExample} style={styles.marginTop10}>
           <Text>Click here to go to Animation Example</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._navigateToWebViewExample} style={styles.marginTop10}>
+          <Text>Click here to go to Web View Example</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._navigateToModalExample} style={styles.marginTop10}>
+          <Text>Click here to go to Modal Example</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._navigateToStatusBarExample} style={styles.marginTop10}>
+          <Text>Navigate to Status Bar Example</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._navigateToSwitchExample} style={styles.marginTop10}>
+          <Text>Navigate to Switch Example</Text>
         </TouchableOpacity>
 			</View>
 		);

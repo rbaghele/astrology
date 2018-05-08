@@ -7,7 +7,10 @@ import {
 } from 'react-native';
 
 export default class ScrollViewExample extends Component<{}> {
-
+  static navigationOptions = {
+    title: 'Scroll View Example'
+  };
+  
   constructor(props){
     super(props);
     this.state = {
