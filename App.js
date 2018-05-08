@@ -15,6 +15,7 @@ import WebViewExample from './WebViewExample'
 import ModalExample from './ModalExample'
 import StatusBar from './StatusBarExample'
 import SwitchExample from './SwitchExample'
+import AsyncStorageExample from './AsyncStorageExample'
 
 const Routes = StackNavigator({
   Home: { screen: HomePage },
@@ -26,7 +27,8 @@ const Routes = StackNavigator({
   WebViewExample: {screen: WebViewExample},
   ModalExample: { screen: ModalExample },
   StatusBar: {screen: StatusBar},
-  SwitchExample: {screen: SwitchExample}
+  SwitchExample: {screen: SwitchExample},
+  AsyncStorageExample: {screen: AsyncStorageExample}
 },
 {
   initialRouteName: 'Home',

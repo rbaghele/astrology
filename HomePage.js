@@ -103,6 +103,10 @@ export default class HomePage extends Component<{}> {
     this.props.navigation.navigate('SwitchExample');
   };
 
+  _navigateToAsyncStorageExample = () => {
+    this.props.navigation.navigate('AsyncStorageExample')
+  };
+
 	render(){
 		const loader = this.state.isLoading ? <ActivityIndicator size='large' /> : null;
 		return(
@@ -179,6 +183,10 @@ export default class HomePage extends Component<{}> {
 
         <TouchableOpacity onPress={this._navigateToSwitchExample} style={styles.marginTop10}>
           <Text>Navigate to Switch Example</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this._navigateToAsyncStorageExample} style={styles.marginTop10}>
+          <Text>Navigate to Async Storage Example</Text>
         </TouchableOpacity>
 			</View>
 		);
